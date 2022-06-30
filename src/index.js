@@ -2,18 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-// import reportWebVitals from './reportWebVitals';
 import { ConfigProvider } from 'antd';
-
+import { BrowserRouter } from 'react-router-dom';
 ConfigProvider.config({
   theme: {
-    primaryColor: 'red',
+    primaryColor: 'green',
   },
 });
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <BrowserRouter>
     <App />
+    </BrowserRouter>
   </React.StrictMode>
 );
