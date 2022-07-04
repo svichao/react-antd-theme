@@ -1,19 +1,16 @@
 import React from 'react';
-import { Layout, Menu } from 'antd';
+import { Layout, Menu, Card } from 'antd';
 import { Route,Routes, useNavigate } from 'react-router-dom';
 import Link from './pages/link';
-import CssInJs from './pages/cssInJs';
-import ModifyVars from './pages/modifyVars';
 import CssVarible from './pages/cssVarible';
 import CssVarsPonyfill from './pages/cssVarsPonyfill';
 import 'antd/dist/antd.variable.min.css'
+import './App.css'
 
 const { Header, Content, Footer } = Layout;
 
 const routes = [
   {key:'1' ,path: 'link', component: <Link/>},
-  {key:'2' ,path: 'cssInJs', component: <CssInJs/>},
-  {key:'3' ,path: 'modifyVars', component: <ModifyVars/>},
   {key:'4' ,path: 'cssVarible', component: <CssVarible/>},
   {key:'5' ,path: 'cssVarsPonyfill', component: <CssVarsPonyfill/>},
 ]
@@ -55,7 +52,9 @@ const App = () => {
           <Routes>
             {
               routes.map(({key, path, component}) => (
-                <Route key={key} path={path} element={component} />
+                <Card key={key} title={path+'方式切换主题'}>
+                  <Route path={path} element={component} />
+                </Card>
               ))
             }
           </Routes>

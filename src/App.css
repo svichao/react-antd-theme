@@ -1,1 +1,5 @@
-@import '~antd/dist/antd.css';
+/* @import '~antd/dist/antd.css'; */
+
+.ant-layout-content{
+  padding: 24px!important;
+}
