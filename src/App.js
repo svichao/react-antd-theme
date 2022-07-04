@@ -49,14 +49,15 @@ const App = () => {
         }}
       >
         <div className="site-layout-content">
-          <Routes>
-            {
+          <Routes>            {
               routes.map(({key, path, component}) => (
-                <Card key={key} title={path+'方式切换主题'}>
-                  <Route path={path} element={component} />
-                </Card>
-              ))
-            }
+                <Route key={key}  path={path} element={
+                    <Card title={path+'方式切换主题'}>
+                      {component}
+                      </Card>
+                  } />
+                  ))
+                }
           </Routes>
         </div>
       </Content>
