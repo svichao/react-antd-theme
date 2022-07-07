@@ -1,6 +1,6 @@
 
 # 前端主题切换方案(react+antd)
-![3bbb9a50a68a39fcae1be405aeeb5c20.png](en-resource://database/516:0)
+![theme_link.png](en-resource://database/516:0)
 
 ## 安装
 下载项目，进入项目目录，执行
