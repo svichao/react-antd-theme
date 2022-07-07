@@ -1,6 +1,6 @@
 
 # 前端主题切换方案(react+antd)
-![./public/theme_link.png](en-resource://database/516:0)
+![https://raw.githubusercontent.com/svichao/react-antd-theme/main/public/theme_link.png](en-resource://database/516:0)
 
 ## 安装
 下载项目，进入项目目录，执行
