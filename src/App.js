@@ -7,7 +7,7 @@ import CssVarsPonyfill from './pages/cssVarsPonyfill';
 import 'antd/dist/antd.variable.min.css'
 import './App.css'
 
-const { Header, Content, Footer } = Layout;
+const { Header, Content } = Layout;
 
 const routes = [
   {key:'link' ,path: '', component: <Link/>},

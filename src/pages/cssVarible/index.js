@@ -1,5 +1,4 @@
 import {
-  ClockCircleOutlined,
   DownOutlined,
   MailOutlined,
   SettingOutlined,
@@ -30,7 +29,6 @@ import {
   Table,
   Tabs,
   TimePicker,
-  Transfer,
   TreeSelect,
   Typography,
 } from 'antd';
@@ -127,26 +125,6 @@ const carTabListNoTitle = [
   },
 ];
 
-const MyTransfer = () => {
-  const mockData = [];
-
-  for (let i = 0; i < 20; i++) {
-    mockData.push({
-      key: i.toString(),
-      title: `content${i + 1}`,
-      description: `description of content${i + 1}`,
-    });
-  }
-
-  return (
-    <Transfer
-      dataSource={mockData}
-      targetKeys={['18']}
-      selectedKeys={['3']}
-      render={(item) => item.title}
-    />
-  );
-};
 
 const App = () => {
   const [color, setColor] = useState({
@@ -353,6 +331,7 @@ const App = () => {
                 />
               }
             >
+              {/* eslint-disable-next-line */}
               <a onClick={(e) => e.preventDefault()}>
                 <Space>
                   Hover me
@@ -555,6 +534,7 @@ const App = () => {
                   width: '100%',
                 }}
                 tabList={carTabListNoTitle}
+                // eslint-disable-next-line
                 tabBarExtraContent={<a href="#">More</a>}
               />
             </Col>

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { Button, Space, Tag, Row, Col, Divider, Timeline, Tree, Alert, Progress, Transfer } from 'antd'
 import { ClockCircleOutlined } from '@ant-design/icons';
 
-import { initTheme, switcher, removePreTheme, getTheme } from './themeSwitcher'
+import { initTheme, switcher, getTheme } from './themeSwitcher'
 
 const SplitSpace = (props) => <Space split={<Divider type="vertical" />} size={4} {...props} />;
 
