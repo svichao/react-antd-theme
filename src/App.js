@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { Layout, Menu, Card } from 'antd';
 import { Route,Routes, useNavigate } from 'react-router-dom';
 import Link from './pages/link';
@@ -10,18 +10,27 @@ import './App.css'
 const { Header, Content, Footer } = Layout;
 
 const routes = [
-  {key:'1' ,path: 'link', component: <Link/>},
-  {key:'4' ,path: 'cssVarible', component: <CssVarible/>},
-  {key:'5' ,path: 'cssVarsPonyfill', component: <CssVarsPonyfill/>},
+  {key:'link' ,path: '', component: <Link/>},
+  {key:'cssVarible' ,path: 'cssVarible', component: <CssVarible/>},
+  {key:'cssVarsPonyfill' ,path: 'cssVarsPonyfill', component: <CssVarsPonyfill/>},
 ]
 
 const App = () => {
   const navigate = useNavigate()
+  const [selectedKeys, setSelectedKeys] = useState()
   
-  const onClick = ({item }) => {
+  const onClick = ({item, key }) => {
     const {path} = item.props
+    setSelectedKeys(key)
     navigate(`${path}`)
   }
+
+  useEffect(() => {
+    const {pathname} = window.location
+    const route = routes.find(({path}) => (`/${path}` === pathname))
+    const selKey = route?route.key:'link'
+    setSelectedKeys(selKey)
+  }, [])
 
   return (
     <Layout className="layout">
@@ -30,13 +39,13 @@ const App = () => {
         <Menu
           theme="dark"
           mode="horizontal"
-          defaultSelectedKeys={['1']}
+          selectedKeys={selectedKeys}
           onClick={onClick}
           items={
             routes.map(({key, path}) => {
               return {
                 key,
-                label: `${path}`,
+                label: `${key}`,
                 path
               }
             })
@@ -49,25 +58,26 @@ const App = () => {
         }}
       >
         <div className="site-layout-content">
-          <Routes>            {
-              routes.map(({key, path, component}) => (
-                <Route key={key}  path={path} element={
-                    <Card title={path+'方式切换主题'}>
-                      {component}
+          <Routes>        
+            <Route path='/'>
+              {
+                routes.map(({key, path, component}) => (
+                  <Route 
+                    key={key} 
+                    index={path==='link'} 
+                    path={path} 
+                    element={
+                      <Card title={key+'方式切换主题'}>
+                        {component}
                       </Card>
-                  } />
-                  ))
-                }
+                    } 
+                  />
+                ))
+              }
+            </Route>    
           </Routes>
         </div>
       </Content>
-      <Footer
-        style={{
-          textAlign: 'center',
-        }}
-      >
-        All Right
-      </Footer>
     </Layout>
   );
 

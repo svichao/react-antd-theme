@@ -6,7 +6,6 @@ import { ConfigProvider } from 'antd';
 import { BrowserRouter } from 'react-router-dom';
 ConfigProvider.config({
   theme: {
-    primaryColor: 'green',
   },
 });
 
